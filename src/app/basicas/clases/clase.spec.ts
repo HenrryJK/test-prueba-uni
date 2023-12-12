@@ -61,14 +61,15 @@ describe('Pruebas de clase', () => {
 
   })
 
-  // it('Debe de retornar 0 de hp, si recibe 100 de daño o mas', () => {
+  // Si comentas esto practicamente el procentaje de la prueba cambia y ya no seria 100% y disminuye indicando que faltan pruebas por realizar.
+  it('Debe de retornar 0 de hp, si recibe 100 de daño o mas', () => {
 
-  //   // const jugador = new Jugador();
-  //   const resp = jugador.recibeDanio(100);
+    // const jugador = new Jugador();
+    const resp = jugador.recibeDanio(100);
 
-  //   expect(resp).toBe(0);
+    expect(resp).toBe(0);
 
 
-  // })
+  })
 
 });
