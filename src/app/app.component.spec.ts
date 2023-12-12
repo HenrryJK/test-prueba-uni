@@ -1,6 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 
+/// utilizando la nomenclatura "x" junto con la palabra describe('AppComponent) , va a ignorar todas la pruebas que se encuentren en ese componente.
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
