@@ -1,4 +1,4 @@
-import { from } from 'rxjs';
+import { Observable, from } from 'rxjs';
 import { MedicosComponent } from './medicos.component';
 import { MedicosService } from './medicos.service';
 
@@ -29,12 +29,29 @@ describe('MedicosComponent', () => {
 
   it('Debe de llamar al servidor para agregar un medico', () => {
 
-
+    // declaramos spy en el servicio y hacemos una simulacion que es de tipo observable
+    const espia = spyOn(servicio, 'agregarMedico').and.callFake(() => new Observable());
 
 
     // llamamos al metodo
     componente.agregarMedico();
 
+    // Ejecutar espia - que sea llamado la constante espia
+    expect(espia).toHaveBeenCalled();
 
   });
+
+
+  it('Debe agregar un nuevo medico al arreglo de médico', () => {
+    const medico = { id: 1, nombre: 'Joel' };
+
+    spyOn(servicio, 'agregarMedico')
+      .and.returnValue(Observable.from([medico]));
+
+    componente.agregarMedico();
+
+    expect(componente.medicos.indexOf(medico)).toBeGreaterThan(1);
+
+  });
+
 });
